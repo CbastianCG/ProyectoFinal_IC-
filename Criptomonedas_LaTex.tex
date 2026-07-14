@@ -1,0 +1,1586 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+% Colors
+\definecolor{headerblue}{RGB}{0, 102, 204}
+\definecolor{lightgray}{RGB}{240, 240, 240}
+\definecolor{darkgray}{RGB}{80, 80, 80}
+
+% Section styling
+\titleformat{\section}{\Large\bfseries\color{headerblue}}{\thesection}{0.5em}{}[\vspace{-0.3em}\rule{\textwidth}{0.4pt}]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0em}{}
+
+% Headers/footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{darkgray}{Criptomonedas -- Proyecto Final Introd. Computación}}
+\fancyhead[R]{\small\textcolor{darkgray}{\thepage}}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% List settings
+\setlist[itemize]{itemsep=0.3em, topsep=0.3em}
+\setlist[enumerate]{itemsep=0.3em, topsep=0.3em}
+
+\begin{document}
+
+
+\begin{titlepage}
+    \centering
+    {\color{black}\textbf{\large UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS}}\\
+    \vspace{0.1cm}
+    {\color{black}\textbf\large UNIVERSIDAD DEL PERÚ, DECANA DE AMERICA}\\
+    \vspace{0.5cm}
+    \includegraphics[width=0.45\textwidth]{UNMSM.png}\\
+    \vspace{0.5cm}
+    {\color{black}{\large FACULTAD DE INGENIERÍA DE SISTEMAS E INFORMÁTICA}}\\
+    \vspace{0.2cm}
+    {\color{black} {ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS}}\\
+    \vspace{0.5cm}
+    \color{black} \hrule height 0.1cm
+    \vspace{0.5cm}
+    {\color{black} {\Large \textbf{CRIPTOMONEDAS}}}\\
+    \vspace{0.5cm}
+    \color{black} \hrule height 0.1cm
+    \vspace{0.5cm}
+    {\color{black} {\large \textbf{CURSO: }}}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large INTRODUCCIÓN A LA COMPUTACIÓN}\\
+    \vspace{0.5cm}
+    {\color{black} {\large \textbf{DOCENTE: }}}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large USCUCHAGUA FLORES, GELBER CHRISTIAN}\\
+    \vspace{0.5cm}
+    {\color{black} {\large \textbf{INTEGRANTES: }}}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large BRACO QUIÑONEZ, JESÚS JAMIR (25200009)}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large CISNEROS GARAVITO, SEBASTIÁN (25200012)}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large CORNEJO TITO, VICTOR JOSIAS (25200013)}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large FLORECIN SERNAQUE, JHON JAIRO (25200095)}\\
+    \vspace{0.5cm}
+    {\color{black} {\large \textbf{GRUPO: }}}\\
+    \vspace{0.2cm}
+    {\color{black}\textbf\Large PROGRAMABORRADORES-GRUPO 6}\\
+    \vspace{0.8cm}
+    {\color{black} {\large \textbf{LIMA, 13 DE JULIO DEL 2026}}}\\
+    
+\end{titlepage}
+\tableofcontents
+\newpage
+
+
+% Página 1: en blanco (portada)
+
+\section{INTRODUCCIÓN}
+
+\subsection{Contextualización}
+
+Desde los primeros intercambios comerciales, la humanidad ha buscado métodos cada vez
+más eficientes para almacenar y transferir valor. Inicialmente se utilizó el trueque, donde los
+bienes eran intercambiados directamente. Sin embargo, este sistema presentaba
+limitaciones importantes, como la necesidad de que ambas personas desearan
+exactamente lo que la otra ofrecía.
+
+Posteriormente surgió el dinero metálico, elaborado con metales preciosos como oro y
+plata. Más adelante apareció el dinero fiduciario, respaldado por los gobiernos y bancos
+centrales. Con el desarrollo de Internet surgieron los pagos electrónicos mediante tarjetas
+bancarias, transferencias digitales y plataformas financieras.
+
+Actualmente vivimos una nueva evolución del dinero digital gracias a las criptomonedas.
+Estas representan activos digitales descentralizados que funcionan mediante tecnologías
+criptográficas y redes distribuidas, eliminando la necesidad de intermediarios como bancos
+o gobiernos para validar las transacciones.
+
+Las criptomonedas no solo representan una innovación financiera, sino también un avance
+importante en la informática, al combinar criptografía, sistemas distribuidos, redes P2P y
+algoritmos de consenso.
+
+\subsection{Justificación}
+
+Las criptomonedas suelen estudiarse únicamente desde una perspectiva económica o
+financiera debido a su valor de mercado y a la inversión que representan.
+
+Sin embargo, su funcionamiento depende principalmente de principios propios de las
+Ciencias de la Computación.
+
+Este proyecto busca analizar las criptomonedas como sistemas computacionales complejos,
+explicando:
+
+\begin{itemize}
+  \item la arquitectura Blockchain;
+  \item los algoritmos criptográficos;
+  \item las estructuras de datos;
+  \item los mecanismos de consenso;
+  \item los lenguajes de programación;
+  \item la seguridad informática.
+\end{itemize}
+
+Comprender estos elementos permite entender por qué las criptomonedas funcionan sin
+una autoridad central y cómo garantizan la integridad de la información.
+
+\subsection{Objetivos del estudio.}
+
+\subsubsection*{Objetivo general}
+
+Analizar las criptomonedas desde una perspectiva computacional y económica, estudiando
+la arquitectura de blockchain, los mecanismos criptográficos, los sistemas distribuidos y su
+impacto en el ecosistema financiero, con especial énfasis en la situación actual del Perú.
+
+\subsubsection*{Objetivos específicos}
+
+\begin{itemize}
+  \item Explicar la arquitectura computacional que permite el funcionamiento seguro de las
+        criptomonedas mediante blockchain.
+  \item Analizar el papel de la criptografía, las estructuras de datos y los mecanismos de
+        consenso en la seguridad e integridad de las transacciones.
+  \item Identificar los principales lenguajes de programación y sistemas operativos utilizados
+        en el desarrollo de tecnologías blockchain.
+  \item Evaluar el estado actual del ecosistema de criptomonedas en el Perú, considerando
+        aspectos legales, económicos y tecnológicos.
+  \item Analizar los beneficios, riesgos y desafíos que presentan las criptomonedas para
+        usuarios, empresas y entidades gubernamentales.
+\end{itemize}
+
+\subsection{Metodología del estudio}
+
+La metodología de estudio empleada en el presente informe fue de tipo documental, basada
+en la recopilación y análisis de información proveniente de fuentes secundarias confiables.
+Para ello, se consultaron páginas web especializadas, informes técnicos, documentos
+académicos y videos educativos relacionados con las criptomonedas, seleccionando
+información relevante, actualizada y verificable. Posteriormente, los datos obtenidos fueron
+organizados, comparados y sintetizados para desarrollar el contenido del informe de
+manera clara, objetiva y fundamentada.
+
+\section{CONTENIDO}
+
+\subsection{Revisión histórica, fundamentos económicos y principios fundamentales de las criptomonedas}
+
+Una criptomoneda es un activo digital diseñado para funcionar como medio de intercambio
+mediante técnicas criptográficas que garantizan la seguridad de las transacciones, el control
+de la creación de nuevas unidades y la verificación de la transferencia de activos sin
+depender de una autoridad central, como un banco o un gobierno. Su funcionamiento se
+basa principalmente en la tecnología Blockchain (cadena de bloques), un registro distribuido
+e inmutable compartido entre miles de nodos de una red.
+
+Desde el punto de vista económico, las criptomonedas representan una evolución del
+concepto de dinero, al incorporar propiedades como la descentralización, la escasez
+programada y la verificabilidad matemática. A diferencia del dinero fiduciario, cuyo valor
+depende de la confianza depositada en los bancos centrales y gobiernos, las criptomonedas
+fundamentan su confianza en algoritmos criptográficos y protocolos de consenso.
+
+\subsubsection*{A) \quad Definiciones básicas}
+
+\begin{itemize}
+  \item \textbf{Blockchain:} Base de datos distribuida donde las transacciones se almacenan en
+        bloques enlazados criptográficamente, haciendo extremadamente difícil modificar
+        registros anteriores.
+  \item \textbf{Criptografía:} Conjunto de técnicas matemáticas utilizadas para proteger la
+        información mediante cifrado y firmas digitales.
+  \item \textbf{Minería:} Proceso mediante el cual los participantes verifican transacciones y
+        agregan nuevos bloques a la cadena, recibiendo recompensas económicas.
+  \item \textbf{Prueba de Trabajo (Proof of Work - PoW):} Mecanismo de consenso utilizado
+        inicialmente por Bitcoin que requiere resolver problemas matemáticos complejos
+        para validar bloques.
+  \item \textbf{Nodo:} Computadora conectada a la red blockchain que almacena una copia del
+        historial completo de transacciones.
+  \item \textbf{Wallet (Billetera digital):} Software o dispositivo que almacena las claves
+        criptográficas necesarias para administrar criptomonedas.
+  \item \textbf{Clave pública:} Dirección utilizada para recibir criptomonedas.
+  \item \textbf{Clave privada:} Código secreto que autoriza el gasto de los fondos; su pérdida
+        implica la pérdida definitiva de los activos.
+\end{itemize}
+
+\subsubsection*{B) Principios fundamentales de las criptomonedas:}
+
+\begin{itemize}
+  \item \textbf{Descentralización:}
+\end{itemize}
+
+No existe una autoridad única que controle el sistema. Las decisiones son verificadas
+colectivamente por la red.
+
+\begin{itemize}
+  \item \textbf{Seguridad criptográfica:}
+\end{itemize}
+
+Las transacciones utilizan algoritmos criptográficos (SHA-256, firmas ECDSA, entre otros)
+que garantizan autenticidad e integridad.
+
+\begin{itemize}
+  \item \textbf{Inmutabilidad:}
+\end{itemize}
+
+Una vez registrada una transacción en la blockchain, modificarla requeriría rehacer
+computacionalmente todos los bloques posteriores.
+
+\begin{itemize}
+  \item \textbf{Transparencia:}
+\end{itemize}
+
+Todas las transacciones son públicas y pueden verificarse mediante exploradores de
+bloques.
+
+\begin{itemize}
+  \item \textbf{Escasez digital:}
+\end{itemize}
+
+Muchas criptomonedas limitan matemáticamente su emisión. Bitcoin, por ejemplo, tendrá un
+máximo de 21 millones de monedas, evitando la inflación por emisión excesiva.
+
+\begin{itemize}
+  \item \textbf{Consenso distribuido:}
+\end{itemize}
+
+Todos los participantes mantienen una versión sincronizada del historial de transacciones
+mediante protocolos de consenso.
+
+\begin{itemize}
+  \item \textbf{Pseudonimato:}
+\end{itemize}
+
+Las transacciones son públicas, aunque las identidades reales de los usuarios no aparecen
+directamente asociadas.
+
+\subsubsection*{2.1.1 Evolución del dinero, los sistemas de pago centralizados, puntos críticos de falla:}
+
+El dinero no es un invento estático, sino una tecnología evolutiva que responde a la
+necesidad humana de coordinar el comercio a gran escala. Su evolución se puede resumir
+en cuatro grandes eras:
+
+\begin{itemize}
+  \item \textbf{El Trueque y Dinero Mercancía:} Inicialmente se intercambiaban bienes
+        directamente, lo que requería una ``coincidencia de deseos''. Para solucionarlo, se
+        adoptó el dinero mercancía (sal, conchas, ganado) y, eventualmente, los metales
+        preciosos (oro y plata) por su escasez, durabilidad y divisibilidad.
+  \item \textbf{Dinero Respaldado (Patrón Oro):} Los gobiernos y bancos emitían certificados de
+        papel que representaban una cantidad específica de oro resguardada en una
+        bóveda.
+  \item \textbf{Dinero Fiduciario (\textit{Fiat}):} En 1971, con la suspensión de la convertibilidad del dólar
+        a oro (el ``Shock de Nixon''), el dinero pasó a ser puramente \textit{fiat}: no tiene respaldo
+        físico y su valor depende exclusivamente de la confianza en el emisor (el Estado) y
+        su curso legal.
+  \item \textbf{Dinero Fiduciario Digital:} La digitalización del dinero \textit{fiat} a través de redes como
+        Visa, Mastercard y SWIFT. El dinero hoy son bits en las bases de datos de los
+        bancos globales.
+\end{itemize}
+
+En la última etapa, aunque aumentaron considerablemente la velocidad de las operaciones
+financieras, mantienen un modelo completamente centralizado donde un tercero de
+confianza valida cada transacción.
+Los principales puntos críticos de falla de estos sistemas son:
+
+\begin{itemize}
+  \item Dependencia de bancos centrales y entidades financieras.
+  \item Riesgo de censura financiera.
+  \item Posibilidad de congelamiento de cuentas.
+  \item Costos elevados por intermediación.
+  \item Vulnerabilidad frente a ataques informáticos dirigidos a servidores centrales.
+  \item Problemas de interoperabilidad internacional.
+  \item Horarios limitados de operación bancaria.
+\end{itemize}
+
+Estas limitaciones motivaron el desarrollo de sistemas descentralizados capaces de
+funcionar sin intermediarios financieros.
+
+\subsubsection*{2.1.2. El debate del ``Doble Gasto'' en la literatura científica: Intentos fallidos previos a 2008 (DigiCash, B-money) y la dependencia de terceros de confianza:}
+
+Uno de los mayores desafíos para el desarrollo del dinero digital fue resolver el denominado
+problema del doble gasto (Double Spending).
+
+Este problema consiste en que un archivo digital puede copiarse infinitas veces. Sin un
+mecanismo adecuado de control, una misma moneda digital podría utilizarse para realizar
+dos o más pagos diferentes.
+
+Los sistemas tradicionales solucionaban este inconveniente mediante una autoridad central,
+generalmente un banco, que verificaba que cada unidad monetaria sólo fuera utilizada una
+vez.
+
+Intentos fallidos antes del Bitcoin:
+
+\begin{itemize}
+  \item \textbf{DigiCash(David Chaun,1989):}
+        Creó el \textit{eCash}, pionero en privacidad utilizando firmas ciegas criptográficas. Ofrecía
+        un anonimato espectacular, pero dependía de un servidor central para validar las
+        transacciones y evitar el doble gasto. Cuando los bancos comerciales retiraron su
+        apoyo, la empresa quebró en 1998.
+        A pesar de eso, las ideas que propuso la empresa, así como algunas de sus
+        fórmulas y herramientas de cifrado, desempeñaron un papel importante en el
+        desarrollo de monedas digitales posteriores.
+
+  \item \textbf{B-money(Wei Dai,1998):}
+        Propuso un protocolo donde cada participante mantendría una copia de una base de
+        datos de saldos. Introdujo la idea de crear dinero resolviendo un rompecabezas
+        computacional (antecedente de la Prueba de Trabajo) (Proof of Work - PoW). Sin
+        embargo, nunca se implementó porque no resolvió de manera eficiente cómo lograr
+        el consenso sobre qué base de datos era la correcta sin un coordinador central y/o
+        autoridad central.
+        Cabe destacar que introdujo ideas revolucionarias como: Identidades criptográficas,
+        contratos digitales, red descentralizada.
+
+  \item \textbf{Bit Gold(Nick Szabo,1998):}
+        A Szabo se le atribuye la creación de algunos de los conceptos que finalmente
+        llevaron a la creación de Bitcoin. Este concepto se llamaba Bit Gold y utilizaba
+        muchas de las mismas técnicas de blockchain, como una red peer-to-peer, minería,
+        un libro mayor o registro y criptografía.
+
+        Quizás el aspecto más revolucionario del concepto de Bit Gold radica en su
+        alejamiento de la centralización. Bit Gold buscaba evitar la dependencia de
+        distribuidores y autoridades monetarias centralizadas. El objetivo de Szabo era que
+        Bit Gold refleja las propiedades del oro físico, permitiendo así a los usuarios eliminar
+        a los intermediarios. Bit Gold, al igual que otros intentos, finalmente fracasó, ya que
+        Szabo no pudo resolver el problema de cómo evitar que un atacante crea
+        identidades falsas para manipular los votos (Ataques Sybil).
+
+        Sin embargo, también inspiró monedas digitales que entrarían al mercado una
+        década o más después de su lanzamiento.
+
+  \item \textbf{Hashcash (Adam Back,1997):}
+
+        Hashcash fue diseñada para diversos fines, entre ellos minimizar el correo basura y
+        prevenir ataques DDoS.
+
+        En síntesis, Hashcash no era una criptomoneda, pero introdujo el mecanismo que
+        posteriormente sería utilizado por Bitcoin para validar bloques y asegurar la red.
+
+        Sin embargo, Hashcash también se enfrentó a muchos de los mismos problemas
+        que las criptomonedas de hoy en día; en 1997, ante la creciente necesidad de
+        potencia de procesamiento, Hashcash se volvió cada vez menos eficaz.
+\end{itemize}
+
+Todos estos proyectos compartían un problema común:
+
+\begin{itemize}
+  \item Dependían de una entidad central.
+  \item No resolvían completamente el doble gasto en un entorno distribuido.
+  \item Eran vulnerables a la censura y al cierre de la organización responsable.
+\end{itemize}
+
+Precisamente este problema fue identificado por Satoshi Nakamoto como la principal
+limitación de los sistemas anteriores.
+
+\subsubsection*{2.1.3 El quiebre de paradigma (2008): Análisis del Whitepaper de Satoshi Nakamoto y la propuesta de la escasez digital programada.}
+
+
+El 31 de octubre de 2008, un programador o grupo anónimo bajo el pseudónimo de Satoshi
+Nakamoto publicó en una lista de correo \textit{cypherpunk} el documento: \textit{``Bitcoin: A Peer-to-Peer
+Electronic Cash System''}.
+
+La genialidad de Nakamoto no fue inventar criptografía nueva, sino combinar tecnologías
+existentes de forma brillante (Prueba de Trabajo de Adam Back, encadenamiento de
+bloques de Haber y Stornetta, y la contabilidad distribuida de Wei Dai) para resolver el doble
+gasto sin intermediarios.
+
+Bitcoin propuso un sistema donde:
+
+\begin{itemize}
+  \item Todas las transacciones son públicas.
+  \item Los participantes mantienen una copia compartida del historial.
+  \item El consenso se logra mediante Proof of Work.
+  \item El doble gasto se evita mediante una cadena cronológica de bloques.
+\end{itemize}
+
+Además, se evalúa lo siguiente:
+
+\begin{itemize}
+  \item \textbf{Transacciones:}
+        Define una moneda digital como una cadena de firmas digitales que permite
+        transferir la propiedad de los bitcoins de un usuario a otro de forma verificable y
+        segura.
+\end{itemize}
+
+
+% Page 8
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°1.jpeg}\\
+\caption{Transacciones}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Servidores de Marca de tiempo:}
+\end{itemize}
+Introduce un sistema que registra cronológicamente las transacciones mediante bloques enlazados con funciones hash, garantizando que el historial no pueda alterarse fácilmente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°2.jpeg}\\
+\caption{Servidores de Marca de Tiempo}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Prueba de Trabajo (Proof of Work):}
+\end{itemize}
+Describe el mecanismo mediante el cual los participantes realizan cálculos computacionales para validar bloques y asegurar la red, dificultando la manipulación de la información.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°3.jpeg}\\
+\caption{Proof of Work}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Red:}
+\end{itemize}
+Explica cómo los nodos transmiten transacciones, validan bloques y mantienen una copia sincronizada de la cadena, aceptando siempre la cadena con mayor trabajo acumulado.
+
+% Page 9
+\begin{itemize}
+  \item \textbf{Incentivos:}
+\end{itemize}
+Establece un sistema de recompensas para motivar a los participantes a validar honestamente las transacciones. Los mineros reciben nuevos bitcoins y comisiones por su trabajo.
+
+\begin{itemize}
+  \item \textbf{Recuperación de espacio en disco:}
+\end{itemize}
+Propone reducir el almacenamiento eliminando datos antiguos ya verificados, utilizando árboles de Merkle para conservar la integridad de la información esencial.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°4.jpeg}\\
+\caption{Recuperación de espacio en disco}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Combinación y división del valor:}
+\end{itemize}
+Explica cómo una transacción puede utilizar múltiples entradas y generar varias salidas, permitiendo enviar cantidades exactas y devolver el cambio automáticamente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°5.jpeg}\\
+\caption{Combinación y división del valor}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Privacidad:}
+\end{itemize}
+La privacidad se protege mediante el uso de claves públicas como seudónimos. Además, se recomienda generar una nueva dirección para cada transacción y así dificultar el seguimiento de los usuarios.
+
+% Page 10
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°6.jpeg}\\
+\caption{Privacidad}
+\end{figure}
+
+\subsubsection*{2.2.4. La propuesta de la Escasez Digital Programada:}
+
+La escasez digital programada fue creada para garantizar que una criptomoneda, especialmente Bitcoin, mantenga una oferta limitada y predecible, evitando los problemas asociados con la emisión ilimitada de dinero. Es decir, busca que los activos digitales sean escasos de manera similar a recursos como el oro. De tal manera que se implementó para evitar la inflación, garantizar una oferta limitada y predecible, generando confianza en un sistema descentralizado y convertir a Bitcoin en un activo digital escaso, cuyas reglas monetarias están definidas por el protocolo y no por una autoridad central.
+
+¿Cómo se implementa? La escasez digital programada se logra mediante dos mecanismos principales:
+
+\begin{itemize}
+  \item \textbf{Límite máximo de emisión:} nunca existirán más de 21 millones de bitcoins. Sin importar que exista tanta demanda.
+  \item \textbf{Halving:} aproximadamente cada cuatro años, la recompensa que reciben los mineros por validar bloques se reduce a la mitad, disminuyendo gradualmente la creación de nuevos bitcoins hasta que se alcance el límite máximo.
+\end{itemize}
+
+2.1.4 Evolución de las criptomonedas (Creadores, criptos más usadas, etc)
+
+\begin{longtable}{>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{3.5cm}>{\centering\arraybackslash}p{5cm}}
+\toprule
+\textbf{Año} & \textbf{Evento} & \textbf{Creador(es)} & \textbf{Importancia} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Año} & \textbf{Evento} & \textbf{Creador(es)} & \textbf{Importancia} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1983 & Propuesta de eCash & David Chaum & Primer concepto moderno de dinero digital \\
+1989 & DigiCash & David Chaum & Primer sistema comercial de dinero electrónico \\
+1997 & Hashcash & Adam Back & Introduce Proof of Work \\
+1998 & B-money & Wei Dai & Sistema descentralizado conceptual \\
+1998 & Bit Gold & Nick Szabo & Introduce escasez digital \\
+2008 & Publicación del Whitepaper de Bitcoin & Satoshi Nakamoto & Nacimiento de Bitcoin \\
+2009 & Lanzamiento de Bitcoin & Satoshi Nakamoto & Primera criptomoneda funcional \\
+2011 & Litecoin & Charlie Lee & Transacciones más rápidas \\
+2015 & Ethereum & Vitalik Buterin & Introducción de contratos inteligentes \\
+2017 & Auge de las ICO & Diversos proyectos & Expansión del ecosistema blockchain \\
+2020 & Finanzas Descentralizadas (DeFi) & Comunidad blockchain & Servicios financieros sin intermediarios \\
+2021 & Consolidación de NFT & Diversos desarrolladores & Tokenización de activos digitales \\
+\end{longtable}
+
+\begin{figure}[H]
+\centering
+\caption{Evolución de las criptomonedas}
+\end{figure}
+
+% Page 11
+\textbf{Criptomonedas más utilizadas}
+
+\begin{itemize}
+  \item \textbf{Bitcoin (BTC):} primera criptomoneda y principal reserva digital de valor.
+  \item \textbf{Ethereum (ETH):} líder en contratos inteligentes y aplicaciones descentralizadas.
+  \item \textbf{Tether (USDT):} stablecoin vinculada al dólar estadounidense.
+  \item \textbf{BNB:} token del ecosistema Binance.
+  \item \textbf{Solana (SOL):} blockchain de alta velocidad para aplicaciones descentralizadas.
+\end{itemize}
+
+\subsection{Arquitectura computacional de la cadena de bloques}
+
+La arquitectura computacional de blockchain constituye el conjunto de tecnologías que permiten almacenar, verificar y proteger la información de forma distribuida. A diferencia de las bases de datos tradicionales, donde existe un servidor central que controla toda la información, una blockchain distribuye una copia completa del registro entre miles de computadoras (nodos). Esto hace que el sistema sea más resistente frente a ataques, fallos técnicos y manipulaciones.
+
+Su funcionamiento combina conceptos de criptografía, estructuras de datos, redes de computadoras y algoritmos distribuidos para garantizar que la información almacenada sea auténtica, íntegra y verificable por cualquier participante de la red.
+
+-- Criptografía como pilar de seguridad: Análisis comparativo de funciones Hash (énfasis en SHA-256): Irreversibilidad y resistencia a colisiones. Criptografía de curva elíptica (ECDSA): Mecanismos de llaves públicas, privadas y firmas digitales.
+
+La criptografía es la base que permite proteger las transacciones y garantizar la identidad de los usuarios sin necesidad de revelar información confidencial.
+
+Existen dos tecnologías fundamentales.
+
+\subsubsection*{a) Funciones Hash (SHA-256)}
+
+Una función hash transforma cualquier cantidad de información en una cadena única de longitud fija.
+
+Bitcoin utiliza el algoritmo \textbf{SHA-256}, desarrollado por la NSA y estandarizado por el NIST.
+
+\textbf{Características principales}
+
+\begin{itemize}
+  \item Siempre produce una salida de 256 bits.
+  \item Es prácticamente imposible obtener el mensaje original a partir del hash (irreversibilidad).
+  \item Dos documentos diferentes difícilmente producirán el mismo hash (resistencia a colisiones).
+  \item Un pequeño cambio en el mensaje genera un hash completamente diferente (efecto avalancha).
+\end{itemize}
+
+% Page 12
+Ejemplo:
+
+Texto:
+
+Hola Mundo
+
+Hash SHA-256:
+
+A591A6D40BF420404A011733CFB7B190D62C65BF0BCDA32B57B277D9AD9F146E
+
+Si solo se cambia una letra:
+
+Hola mundo
+
+El hash cambia completamente.
+
+Esto permite detectar cualquier modificación realizada en un bloque.
+
+\subsubsection*{¿Por qué SHA-256 es importante?}
+
+Cada bloque almacena el hash del bloque anterior.
+
+Esto crea una cadena donde modificar un bloque obliga a modificar todos los siguientes.
+
+Por ello se denomina \textbf{Blockchain}.
+
+\subsubsection*{b) Criptografía de Curva Elíptica (ECDSA)}
+
+Las criptomonedas no utilizan contraseñas tradicionales.
+
+Cada usuario posee:
+
+\begin{itemize}
+  \item una llave privada
+  \item una llave pública
+\end{itemize}
+
+La llave privada sirve para firmar digitalmente las transacciones.
+
+La llave pública permite que cualquier persona verifique la autenticidad de esa firma.
+
+Nunca es necesario revelar la llave privada.
+
+\textbf{Ventajas}
+
+\begin{itemize}
+  \item Alta seguridad.
+  \item Claves pequeñas.
+  \item Firmas digitales rápidas.
+  \item Bajo consumo de memoria.
+\end{itemize}
+
+% Page 13
+-- Estructuras de Datos Lineales y Verificación: Anatomía interna de un bloque: Header, Timestamp y el rol del Nonce. Árboles de Merkle (Merkle Trees): Eficiencia algorítmica en la verificación de integridad de datos ($O(\log n)$ frente a $O(n)$).
+
+Cada bloque contiene información organizada cuidadosamente.
+
+Su estructura principal es:
+
+\begin{itemize}
+  \item Bloque
+  \begin{itemize}
+    \item Header
+    \begin{itemize}
+      \item Hash anterior
+      \item Timestamp
+      \item Nonce
+      \item Merkle Root
+      \item Versión
+    \end{itemize}
+    \item Body
+    \begin{itemize}
+      \item Lista de transacciones
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Header}
+
+Es la ``identidad'' del bloque.
+
+Contiene toda la información necesaria para verificarlo.
+
+Entre sus campos destacan:
+
+\begin{itemize}
+  \item versión
+  \item hash anterior
+  \item Merkle Root
+  \item timestamp
+  \item dificultad
+  \item nonce
+\end{itemize}
+
+\textbf{Timestamp}
+
+Registra la fecha y hora aproximada en que el bloque fue minado.
+
+% Page 14
+Permite mantener el orden cronológico de la cadena.
+
+\textbf{Nonce}
+
+El Nonce es un número que los mineros modifican constantemente hasta encontrar un hash válido.
+
+Durante la minería pueden probar millones o incluso billones de valores por segundo.
+
+Cuando encuentran un hash que cumple la dificultad exigida, el bloque es aceptado.
+
+\textbf{Árboles de Merkle}
+
+Los Árboles de Merkle son estructuras de datos que permiten verificar rápidamente si una transacción pertenece a un bloque sin revisar todas las transacciones.
+
+Ejemplo:
+
+\begin{verbatim}
+       Root Hash
+        /    \
+    Hash A  Hash B
+    /  \    /  \
+   T1  T2  T3  T4
+\end{verbatim}
+
+Si alguien modifica la transacción T2, cambian:
+
+\begin{itemize}
+  \item Hash A
+  \item Root Hash
+\end{itemize}
+
+Por lo tanto, toda la red detecta inmediatamente la alteración.
+
+\textbf{Complejidad computacional}
+
+Sin Árbol de Merkle:
+
+$O(n)$
+
+Debe revisarse toda la lista de transacciones.
+
+Con Árbol de Merkle:
+
+$O(\log n)$
+
+Solo se revisa la rama correspondiente.
+
+% === batch_015_021.tex ===
+Esto mejora considerablemente la eficiencia cuando un bloque contiene miles de transacciones.
+
+-Lenguajes de programación y sistemas operativos usados como arquitectura computacional en la industria de las criptomonedas
+
+Las criptomonedas emplean distintos lenguajes según el tipo de blockchain y el propósito del desarrollo.
+
+\begin{longtable}{ll}
+\toprule
+\textbf{Lenguaje} & \textbf{Uso principal} \\
+\midrule
+\endhead
+C++ & Desarrollo de Bitcoin Core \\
+Solidity & Contratos inteligentes en Ethereum \\
+Rust & Solana, Polkadot y Near \\
+Go & Ethereum (Geth), Hyperledger \\
+Java & Aplicaciones empresariales blockchain \\
+Python & Scripts, análisis y pruebas \\
+JavaScript / TypeScript & Aplicaciones Web3 y desarrollo de interfaces \\
+\bottomrule
+\end{longtable}
+
+\subsubsection*{¿Por qué estos lenguajes?}
+
+\begin{itemize}
+    \item C++ ofrece alto rendimiento y control de memoria.
+    \item Solidity fue creado específicamente para contratos inteligentes.
+    \item Rust proporciona seguridad de memoria y alta velocidad.
+    \item Go destaca por su eficiencia en redes y concurrencia.
+\end{itemize}
+
+\subsubsection*{2.2.4 Sistemas Operativos}
+
+Los nodos blockchain funcionan sobre distintos sistemas operativos.
+
+Los más utilizados son:
+
+\begin{longtable}{ll}
+\toprule
+\textbf{Sistema Operativo} & \textbf{Uso} \\
+\midrule
+\endhead
+Linux & Servidores y minería \\
+Ubuntu Server & Nodos completos \\
+Windows & Desarrollo y pruebas \\
+macOS & Desarrollo de aplicaciones \\
+Android & Wallets móviles \\
+iOS & Wallets móviles \\
+\bottomrule
+\end{longtable}
+
+Linux domina porque ofrece mayor estabilidad, seguridad y mejor rendimiento para servidores que ejecutan nodos durante largos períodos.
+
+\subsection{Sistemas distribuidos y resolución del consenso}
+
+En la informática tradicional, los sistemas centralizados dependen de una única entidad o servidor central que valida, almacena y procesa la información. Si bien este modelo es eficiente, presenta un punto único de fallo (\textit{Single Point of Failure}). Los \textbf{sistemas distribuidos} surgen como alternativa, fragmentando la confianza y el control entre múltiples computadoras independientes (llamadas \textbf{nodos}) que se comunican a través de una red.
+
+El mayor desafío de estos sistemas es el \textbf{consenso}: lograr que todos los nodos, dispersos geográficamente y sin una autoridad central, se pongan de acuerdo sobre un único estado de la verdad (por ejemplo, determinar si un saldo bancario es correcto o si una transacción es válida).
+
+\subsection*{2.3.1 Topología de Redes Peer-to-Peer}
+
+La arquitectura fundamental que sostiene a los sistemas distribuidos modernos es la red \textbf{Peer-to-Peer (P2P)} o red de par a par. A diferencia del modelo Cliente-Servidor (como cuando un navegador web solicita datos a los servidores de Google), en una red P2P todos los nodos tienen las mismas capacidades y responsabilidades; actúan simultáneamente como clientes y servidores.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{N°8.jpeg}\\
+\caption{Redes Base y P2P}
+\end{figure}
+
+\begin{enumerate}[label=\alph*.]
+    \item Protocolos de comunicación entre nodos y propagación de transacciones
+\end{enumerate}
+
+Para que la red funcione, los nodos deben intercambiar información de forma eficiente. Cuando un usuario inicia una acción (por ejemplo, enviar una criptomoneda), esta transacción se transmite a los nodos más cercanos utilizando un algoritmo de \textbf{propagación por inundación} o \textit{Gossip Protocol} (protocolo de rumeo).
+
+Por ejemplo, funciona de manera similar a cómo se propaga un rumor en una comunidad: el Nodo A le avisa al B y al C; el B le avisa al D y al E, y en cuestión de segundos, toda la red global ha recibido y verificado la información de manera orgánica.
+
+\begin{enumerate}[label=\alph*., start=2]
+    \item Persistencia de datos sin servidor central.
+\end{enumerate}
+
+En una red P2P, la información no se almacena en una base de datos centralizada. Cada nodo completo (\textit{full node}) mantiene una copia idéntica y exacta de todo el historial de datos (la base de datos distribuida). Si un nodo se desconecta o es destruido, el sistema no sufre pérdida de datos ni interrupciones, ya que el resto de los componentes de la red conserva la integridad de la información histórica.
+
+En el ámbito de las criptomonedas, el ejemplo más puro de persistencia de datos sin servidor central es \textbf{la Blockchain de Bitcoin (y su red de nodos completos o \textit{full nodes})}.
+
+A diferencia de un banco tradicional, donde todos los saldos y transacciones se guardan en los servidores centralizados de la entidad financiera, en Bitcoin la base de datos (el libro contable) está copiada de forma idéntica en decenas de miles de computadoras independientes alrededor del mundo. Cada vez que se añade un nuevo bloque de transacciones, este se propaga por la red P2P y cada nodo lo valida y lo almacena de forma local en su propio disco duro. Esto garantiza una persistencia indestructible: si un gobierno apagara la mitad de las computadoras de la red o si un centro de datos sufriera un fallo crítico, la historia financiera y los saldos de todos los usuarios seguirían intactos y accesibles, ya que la información sobre quién posee cada moneda sobrevive de manera redundante en los miles de nodos restantes de la red.
+
+\subsection*{2.3.2 Tolerancia a Fallos Bizantinos (BFT):}
+
+Lograr que los nodos se coordinen es sencillo si asumimos que todos son honestos y las conexiones son perfectas. Sin embargo, en entornos abiertos, globales y asíncronos (donde los mensajes pueden retrasarse), los nodos pueden fallar, desconectarse o actuar de manera maliciosa para alterar el sistema. Este dilema se formaliza mediante el problema de la \textbf{Tolerancia a Fallos Bizantinos (BFT)}.
+
+\begin{enumerate}[label=\alph*.]
+    \item El problema teórico de la confianza en entornos distribuidos y asíncronos.
+\end{enumerate}
+
+Planteado por Lamport, Shostak y Pease en 1982, el problema describe a un grupo de generales del ejército bizantino que rodean una ciudad enemiga. Deben decidir colectivamente un único plan de acción: \textbf{atacar} o \textbf{retirarse}. La victoria solo es posible si todos atacan o todos se retiran en sincronía; una acción dividida resultará en la derrota total.
+
+El conflicto radica en que los generales se comunican mediante mensajeros que pueden ser interceptados, y entre los propios generales puede haber \textbf{traidores} que envíen órdenes contradictorias para sabotear el consenso (por ejemplo, diciendo a unos que ataquen y a otros que se retiren).
+
+En ciencias de la computación, los ``generales'' son los nodos informáticos y los ``traidores'' son componentes de software corruptos, atacantes informáticos (\textit{hackers}) o fallos técnicos de red. Un sistema es \textbf{Tolerante a Fallos Bizantinos} si es capaz de alcanzar un acuerdo correcto incluso cuando una parte de sus nodos envía datos erróneos o actúa con malicia de manera deliberada.
+
+\subsection*{2.3.3 Compilación de Mecanismos de Consenso}
+
+Para resolver el Problema de los Generales Bizantinos a escala global sin una entidad reguladora, los sistemas distribuidos y las criptomonedas implementan \textbf{mecanismos de consenso}: reglas algorítmicas y matemáticas que garantizan la convergencia hacia un único registro de datos.
+
+\begin{enumerate}[label=\alph*.]
+    \item Proof of Work (PoW)
+\end{enumerate}
+
+Introducido de forma práctica por Bitcoin, \textbf{Proof of Work (PoW)} aborda el consenso mediante la competencia computacional y la teoría de juegos.
+
+\begin{itemize}
+    \item \textbf{El proceso de minería como carrera algorítmica:} En PoW, los nodos validadores (mineros) compiten por resolver un rompecabezas matemático de alta complejidad criptográfica. Este proceso consiste en encontrar un valor aleatorio llamado \textit{nonce} que, al combinarse con los datos del bloque, genere un hash con características específicas (por ejemplo, una cantidad de ceros iniciales). Es una carrera de fuerza bruta: la única forma de resolverlo es probar miles de millones de combinaciones por segundo. El primer minero en hallar la solución adquiere el derecho de proponer el siguiente bloque y recibe una recompensa económica.
+    \item \textbf{El debate sobre su costo computacional y energético:} Aunque PoW proporciona un nivel de seguridad sumamente robusto (hacer un ataque requiere controlar más del 50\% del poder de procesamiento de la red), su viabilidad a largo plazo es intensamente debatida. El consumo eléctrico global de redes como Bitcoin es comparable al de naciones enteras. Este gasto masivo de energía no se debe a la complejidad intrínseca de procesar las transacciones, sino a la propia naturaleza competitiva de la infraestructura de hardware (ASICs y GPUs) requerida para ganar la carrera algorítmica.
+\end{itemize}
+
+\begin{enumerate}[label=\alph*., start=2]
+    \item Proof of Stake (PoS)
+\end{enumerate}
+
+Como respuesta directa a las ineficiencias de PoW, surge \textbf{Proof of Stake (PoS)}, implementado en la actualidad por redes de gran envergadura como Ethereum.
+
+\begin{itemize}
+    \item \textbf{El cambio hacia la validación por participación:} En PoS, se elimina por completo la necesidad de resolver acertijos matemáticos mediante potencia de cómputo. En su lugar, el derecho a validar transacciones y proponer bloques se asigna de manera pseudoaleatoria, ponderado por la cantidad de capital o monedas nativas del sistema que un nodo decide bloquear en calidad de garantía (hacer \textit{staking}).
+    \item \textbf{Impacto en la eficiencia del sistema:} Al no requerir supercomputadoras compitiendo continuamente, el consumo de energía eléctrica de la infraestructura de red se reduce drásticamente (en más del 99.9\%). Además, la seguridad del sistema cambia la barrera tecnológica por una barrera económica: si un validador intenta procesar transacciones fraudulentas o atacar la red, el protocolo aplica un castigo financiero automático penalizando o confiscando directamente los fondos que el nodo dejó en garantía (\textit{slashing}). Esto optimiza la escalabilidad y la eficiencia de costos del sistema distribuido manteniendo la resistencia a fallos.
+\end{itemize}
+
+\subsection{Evolución del software en Blockchain:Contratos inteligentes}
+
+\subsubsection*{BLOCKCHAIN}
+
+Blockchain funciona como una base de datos descentralizada distribuida, con datos almacenados en varios ordenadores, lo que la hace resistente a la manipulación. Las transacciones se validan a través de un mecanismo de consenso, lo que garantiza el consenso en toda la red.
+
+En la tecnología blockchain, cada transacción se agrupa en bloques, que luego se vinculan entre sí, formando una cadena segura y transparente. Esta estructura garantiza la integridad de los datos y proporciona un registro a prueba de manipulaciones, lo que hace que blockchain sea ideal para aplicaciones como las criptomonedas y la gestión de la cadena de suministro.
+
+\subsection*{2.4.1 Evolución}
+
+La tecnología blockchain comenzó con la introducción de Bitcoin en 2008, creada por una figura o grupo anónimo conocido como Satoshi Nakamoto. La tecnología subyacente de Bitcoin se diseñó como una moneda digital descentralizada para permitir transacciones entre pares sin la necesidad de un intermediario de confianza como un banco. El blockchain sirvió como un libro de contabilidad público, donde se registraban de forma segura todas las transacciones, lo que evitaba el doble gasto, un problema clave para las monedas digitales en ese momento.
+
+Con el desarrollo de plataformas como Ethereum en 2015, blockchain comenzó a admitir contratos inteligentes: contratos digitales almacenados en una blockchain que se ejecutan automáticamente cuando se cumplen los términos y condiciones predeterminados.
+
+Este desarrollo amplió las aplicaciones de blockchain en el mundo real, extendiéndose a áreas como el inmueble, las finanzas, la gestión de la cadena de suministro, la atención médica e incluso los sistemas de votación. Con el tiempo, blockchain ha crecido mucho más allá de sus raíces en criptomonedas, convirtiéndose en un actor clave en las finanzas descentralizadas (DeFi) y los tokens no fungibles (NFT).
+
+Hoy en día, blockchain continúa evolucionando, con avances continuos destinados a mejorar la escalabilidad, la privacidad y su integración con tecnologías emergentes como la inteligencia artificial (IA) y el Internet de las cosas (IoT).
+
+\subsection*{2.4.2 Beneficios de blockchain}
+
+La tecnología blockchain ofrece varios beneficios que transforman las operaciones de las empresas, mejorando la confianza, la seguridad, la trazabilidad y la eficiencia en múltiples sectores.
+
+Estos son algunos de los principales beneficios de blockchain:
+
+Mayor confianza: Blockchain crea una red segura y exclusiva para miembros, lo que garantiza un acceso preciso y oportuno a los datos. Los registros confidenciales se comparten solo con miembros autorizados de la red, lo que fomenta la confianza y crea visibilidad de extremo a extremo en todo el sistema.
+
+Seguridad mejorada: Se requiere consenso entre los miembros de la red para validar la precisión de los datos, y todas las transacciones validadas son inmutables y se registran permanentemente. Esta capacidad garantiza que no se pueda eliminar ninguna transacción, ni siquiera por parte de un administrador del sistema.
+
+Mejor trazabilidad: Blockchain ofrece trazabilidad instantánea con un registro de auditoría transparente del recorrido de un activo. En los sectores que priorizan la sostenibilidad, permite compartir directamente los datos de procedencia, verificando las prácticas éticas. También puede revelar ineficiencias en la cadena de suministro, como retrasos, lo que impulsa una mayor responsabilidad.
+
+Mejora de la eficiencia. Con un libro mayor distribuido compartido entre los miembros de la red, se elimina la necesidad de conciliaciones de registros que consumen mucho tiempo. Los contratos inteligentes, que se almacenan en blockchain, pueden automatizar procesos y acelerar las transacciones.
+
+Transacciones automatizadas: Los contratos inteligentes facilitan la automatización fluida de las transacciones, mejorando la eficiencia y acelerando los procesos en tiempo real. Cuando se cumplen las condiciones predefinidas, se activa automáticamente el siguiente paso, lo que reduce la necesidad de intervención manual.
+
+\subsection*{2.4.3 ¿Cómo funciona blockchain?}
+
+La tecnología blockchain registra las transacciones de forma segura vinculando bloques de datos. Cada bloque contiene detalles importantes sobre los movimientos de activos y garantiza la integridad de todo el proceso. Así es como funciona.
+
+1. Registra las transacciones como bloques: Cada transacción se registra como un ``bloque'' de datos en el blockchain. Estos bloques capturan detalles clave sobre el movimiento de activos, ya sean tangibles (como un producto) o intangibles (como la propiedad intelectual). Los datos dentro de cada bloque incluyen información crítica, como quién, qué, cuándo, dónde, la cantidad de la transacción y condiciones específicas como la temperatura de un envío de alimentos.
+
+Además, cada bloque cuenta con una marca de tiempo, que registra el momento exacto en que se añade la transacción al blockchain. Esta marca de tiempo garantiza el orden cronológico de las transacciones y añade una capa adicional de verificabilidad a los datos, evitando cualquier alteración retrospectiva de la información registrada.
+
+2. Conecta bloques entre sí: Cada bloque está vinculado al bloque anterior y al siguiente, creando una cadena segura de datos. Esta cadena se realiza mediante hashes criptográficos, identificadores únicos para cada bloque. El hash de un bloque incluye datos del bloque anterior, lo que garantiza la secuencia y el momento exacto de cada transacción. El hash criptográfico hace que sea casi imposible alterar cualquier bloque sin cambiar todos los bloques posteriores, lo que garantiza la integridad de todo el proceso.
+
+3. Construye un blockchain irreversible: Los bloques se agrupan en una cadena irreversible conocida como blockchain. Cada nuevo bloque refuerza la seguridad y validación del anterior, reforzando toda la cadena. Esta arquitectura basada en Bitcoin es lo que hace que los sistemas descentralizados sean tan seguros y fiables.
+
+% === batch_022_028.tex ===
+% --- Page 22 ---
+Los nodos de la red blockchain validan y mantienen el blockchain confirmando la validez de cada
+transacción a través de algoritmos de consenso, lo que garantiza que el sistema permanezca seguro
+e inmutable.
+
+4. Garantiza la confianza y la inmutabilidad: Con cada nuevo bloque, blockchain se vuelve más
+seguro, lo que hace casi imposible cambiar las transacciones anteriores. Esta inmutabilidad
+proporciona un libro mayor fiable y transparente en el que pueden confiar todos los miembros de la
+red, lo que evita el fraude y garantiza que todos los registros de transacciones sean precisos e
+inalterables.
+
+\subsubsection*{2.4.4 La diferencia entre blockchain y Bitcoin}
+
+Bitcoin es la primera moneda digital descentralizada que permite transacciones entre pares sin una
+autoridad central. Utiliza blockchain como infraestructura subyacente, actuando como un libro mayor
+distribuido que registra y verifica todas las transacciones de Bitcoin.
+
+Como la criptomoneda más conocida, Bitcoin desempeña un papel central en el ecosistema
+blockchain, pero también forma parte de un mercado más amplio y en evolución. Los precios en el
+espacio de Bitcoin y criptomonedas son muy volátiles, y factores como los avances tecnológicos, el
+sentimiento del mercado, la demanda de los inversores y los cambios normativos desempeñan un
+papel importante.
+
+\subsection*{Contratos Inteligentes}
+
+\subsubsection*{2.4.5 ¿Qué es un contrato inteligente?}
+
+Los contratos inteligentes son contratos digitales almacenados en una blockchain que se
+ejecutan automáticamente cuando se cumplen las condiciones predeterminadas.
+
+En palabras simples, es un acuerdo digital que se cumple por sí solo, sin necesidad de un
+intermediario como un banco, un abogado o un notario.
+
+\subsubsection*{2.4.6 ¿Cómo surgieron?}
+
+Al principio, las blockchains sólo servían para registrar transacciones.
+
+2009: Bitcoin permite enviar y recibir dinero digital, pero tenía un lenguaje de programación
+muy limitado.
+
+2015: Ethereum introdujo los contratos inteligentes, permitiendo desarrollar aplicaciones
+completas sobre blockchain.
+
+Este fue un gran avance porque convirtió la blockchain en una plataforma para crear
+software.
+
+\subsubsection*{2.4.7 ¿Cómo funcionan los contratos inteligentes?}
+
+% --- Page 23 ---
+Los contratos inteligentes funcionan mediante las declaraciones simples ``si/cuándo\ldots{}
+entonces\ldots{}'' que se escriben en código en una blockchain. Una red de ordenadores ejecuta
+las acciones cuando se cumplen y verifican condiciones predeterminadas.
+
+Estas acciones pueden incluir la liberación de fondos a las partes correspondientes, el
+registro de un vehículo, el envío de notificaciones o la emisión de una multa. La blockchain
+se actualiza cuando se completa la transacción. Eso significa que la transacción no se
+puede cambiar y solo las partes a las que se les ha concedido permiso pueden ver los
+resultados.
+
+El proceso es sencillo:
+
+\begin{itemize}
+    \item Un desarrollador escribe el contrato.
+    \item El contrato se publica en la blockchain.
+    \item Los usuarios interactúan con él.
+    \item Cuando se cumplen las condiciones, el contrato se ejecuta automáticamente.
+    \item El resultado queda registrado permanentemente en la blockchain.
+\end{itemize}
+
+Ejemplo práctico, Un seguro agrícola: Si una estación meteorológica informa que no llovió
+durante un mes, el contrato inteligente envía automáticamente la indemnización al
+agricultor, no hace falta que una persona apruebe el pago.
+
+\subsubsection*{2.4.8 Beneficios de los contratos inteligentes}
+
+\begin{itemize}
+    \item Velocidad, eficiencia y precisión: Una vez que se cumple una condición, el contrato
+    se ejecuta inmediatamente. Al ser digitales y automatizados, los contratos
+    inteligentes eliminan la necesidad de tramitar papeleo y dedicar tiempo a corregir los
+    errores que suelen producirse al rellenar documentos manualmente.
+
+    \item Confianza y transparencia: Dado que no hay terceros involucrados y que los
+    registros de las transacciones se comparten entre los participantes, no es necesario
+    cuestionar si la información ha sido alterada en beneficio propio.
+
+    \item Seguridad: Los registros de transacciones de blockchain están cifrados, lo que los
+    hace difíciles de piratear. Además, como cada registro está conectado a los registros
+    anteriores y posteriores de un libro mayor distribuido, los hackers tienen que alterar
+    toda la cadena para cambiar un solo registro.
+
+    \item Ahorros: Los contratos inteligentes eliminan la necesidad de intermediarios para
+    gestionar las transacciones y, por extensión, sus retrasos y tarifas asociados.
+\end{itemize}
+
+\subsubsection*{2.4.9 Desventajas de los contratos inteligentes}
+
+1. Errores en el código (Bugs): Los contratos inteligentes son programas, y como cualquier
+software pueden contener errores de programación. El problema es que, una vez
+publicados en la blockchain, esos errores pueden ser aprovechados por personas
+malintencionadas para robar fondos o alterar el funcionamiento del contrato.
+
+2. Inmutabilidad: Una de las principales ventajas de los contratos inteligentes también puede
+convertirse en una desventaja. Como el contrato queda almacenado de forma permanente
+en la blockchain, normalmente no puede modificarse una vez desplegado. Esto significa que
+si el contrato tiene un error, si cambian las necesidades del proyecto o si aparecen nuevas
+
+% --- Page 24 ---
+regulaciones, no basta con editar el código. En muchos casos es necesario crear un nuevo
+contrato y migrar toda la información.
+
+3. Costos de ejecución (Gas): Cada operación realizada por un contrato inteligente requiere
+pagar una comisión conocida como Gas. Cuando la red tiene muchos usuarios, la demanda
+aumenta y las comisiones también pueden subir considerablemente.
+
+4. Problemas de escalabilidad: Las blockchains procesan un número limitado de
+transacciones por segundo. Si millones de personas utilizan la red al mismo tiempo las
+transacciones tardan más en confirmarse, aumentan las comisiones, la experiencia del
+usuario empeora. Por esta razón se han desarrollado soluciones como Layer 2, Sharding y
+Rollups.
+
+5. Dependencia de información externa (Oráculos): Los contratos inteligentes sólo pueden
+acceder directamente a la información que está dentro de la blockchain. Si necesitan
+conocer datos del mundo real (como el precio del dólar, el resultado de un partido o el
+clima), dependen de servicios externos llamados oráculos. Si el oráculo falla o entrega
+datos incorrectos, el contrato también actuará de forma incorrecta.
+
+\subsubsection*{2.4.10 Paradigma de los Smart Contracts}
+
+El paradigma de los contratos inteligentes (Smart Contracts) es una forma de realizar
+acuerdos mediante programas informáticos que se ejecutan automáticamente cuando se
+cumplen determinadas condiciones, sin necesidad de un intermediario como un banco, un
+notario o una empresa.
+
+El paradigma de los contratos inteligentes (Smart Contracts) es una forma de realizar
+acuerdos mediante programas informáticos que se ejecutan automáticamente cuando se
+cumplen determinadas condiciones, sin necesidad de un intermediario como un banco, un
+notario o una empresa.
+
+¿Cómo funciona? Se crea un contrato inteligente y se programa con ciertas reglas. El
+contrato se almacena en la blockchain. Cuando ocurre el evento esperado, el contrato
+verifica si se cumplen las condiciones. Si las condiciones son verdaderas, el contrato
+ejecuta automáticamente la acción programada.
+
+\textbf{La Máquina Virtual de Ethereum (EVM) y Turing Completitud:}
+
+Bitcoin introdujo las criptomonedas al mundo en 2008. Sin embargo, la mayoría de los
+entusiastas de las criptomonedas creen que la perfecta integración de los contratos
+inteligentes de Ethereum en 2015 fue el primer paso para perfeccionar la fórmula de Bitcoin.
+Los contratos inteligentes de Ethereum brindaron a los desarrolladores una manera sencilla
+de almacenar protocolos de transacciones en la cadena de bloques mediante un lenguaje
+de programación. Para comprender los contratos inteligentes, es necesario comprender la
+Máquina Virtual de Ethereum (EVM). Esta es la máquina de estados que permite la
+implementación y ejecución de contratos inteligentes en el ecosistema descentralizado de
+Ethereum.
+
+\subsubsection*{2.4.11 ¿Qué es EVM?}
+
+% --- Page 25 ---
+La EVM es una máquina virtual Turing completa a la que se puede acceder globalmente a
+través de un nodo de red participante. Su completitud Turing se mide por su capacidad para
+ejecutar cualquier programa. Sin la EVM, los desarrolladores no podrían implementar las
+numerosas dApps (aplicaciones descentralizadas) por las que Ethereum es conocido.
+
+Las máquinas virtuales no están vinculadas a un dispositivo físico específico y carecen de
+interfaz de sistema o hardware. Una máquina virtual utiliza la potencia de cálculo de
+múltiples participantes para proporcionar un entorno de ejecución similar al de un ordenador
+físico. A diferencia de los ordenadores físicos, las máquinas virtuales no están limitadas a
+un único sistema operativo ni ubicación. Personas de todo el mundo pueden utilizarlas
+independientemente de dónde vivan o del tipo de ordenador que utilicen.
+
+Las máquinas de estados son motores de computación que pueden alternar entre distintos
+estados. Cuando una transacción provoca la ejecución de un contrato inteligente, la EVM
+modifica el estado de Ethereum para satisfacer las necesidades de dicha llamada al
+contrato.
+
+La capacidad de la EVM para interpretar y ejecutar contratos inteligentes durante las
+transacciones distingue a Ethereum de cadenas de bloques más simples como Bitcoin. La
+cadena de bloques de Bitcoin es simplemente un libro mayor distribuido. Por otro lado, la
+función de transición de estado de la EVM permite que Ethereum se actualice a un nuevo
+estado válido de bloque en bloque en respuesta a los datos de entrada de un contrato
+inteligente.
+
+Los cambios de estado de Ethereum permiten a los desarrolladores crear monedas y NFT
+personalizados, representar la propiedad de activos físicos subyacentes, crear nombres de
+dominio no fungibles y crear aplicaciones de finanzas descentralizadas u organizaciones
+autónomas (DAO) completamente funcionales.
+
+\subsubsection*{2.4.12 Funcionalidad de EVM}
+
+La EVM utiliza una arquitectura basada en pila y un tamaño de palabra de 256 bits. Este
+tamaño de palabra de 256 bits permite a la EVM realizar operaciones nativas de hash y
+curvas elípticas, lo que garantiza que los fondos solo puedan ser gastados por sus legítimos
+propietarios. La EVM admite varios lenguajes de programación, como Vyper y Solidity,
+siendo Solidity el más popular para el código fuente de contratos inteligentes. Estos
+lenguajes se utilizan para escribir contratos inteligentes, que luego se convierten al código
+de bytes necesario para su uso en la EVM.
+
+El código de bytes almacenado en la cadena, conocido como código de bytes en tiempo de
+ejecución, se convierte luego en un código de operación que el motor de cálculo de la EVM
+interpreta para llevar a cabo esas acciones.
+
+Cuando una transacción de Ethereum ejecuta un contrato inteligente, se carga una EVM
+con la información de la transacción en procesamiento. Por ejemplo, una variable necesaria
+para la ejecución de un contrato inteligente es el suministro de gas, que se establece con la
+cantidad de gas pagada por el remitente. El suministro de gas se reduce a medida que
+avanza la transacción y, si en algún momento llega a cero, la transacción se abandona. Si
+bien las transacciones abandonadas no modifican el estado de Ethereum y no se
+consideran transacciones válidas, el beneficiario del bloque recibe una compensación por
+proporcionar recursos hasta el punto de parada.
+
+% --- Page 26 ---
+Los contratos inteligentes pueden iniciar transacciones y llamar a otros contratos por sí
+mismos. En este caso, cada llamada implica la carga de información específica para la
+nueva transacción en otra EVM. Esta información se inicializa desde la EVM del nivel
+superior. Si no hay suficiente gas para completar la ejecución, el estado se descarta y la
+ejecución de la transacción se reinicia en la EVM del nivel superior.
+
+\subsubsection*{2.4.13 ¿Cómo se almacenan los datos?}
+
+El protocolo Ethereum utiliza dos tipos de datos distintos: datos permanentes y datos
+efímeros. Los datos permanentes, como una transacción, se registran en la estructura de
+datos en forma de árbol de Ethereum y nunca se modifican. Los datos efímeros, como el
+saldo de una billetera, se registran y cambian en respuesta a nuevas transacciones.
+
+Los códigos de operación de la EVM utilizan la memoria del contrato para recuperar datos.
+El estado del contrato se almacena en la dirección del contrato y no es persistente. La
+posición de una variable en la matriz de almacenamiento de un contrato inteligente viene
+determinada por su orden en el código. Si una variable tiene 256 bits o menos, la EVM
+intentará almacenar varias variables en ese espacio. Cuando un contrato hereda de otro, las
+variables de almacenamiento del contrato base se guardan en las primeras posiciones
+según el orden de herencia.
+
+\subsection*{El reto de la Escalabilidad en la Ingeniería de Software}
+
+Si bien las cadenas de bloques ofrecen confianza y seguridad descentralizadas, se
+enfrentan a importantes desafíos para escalar sus operaciones. El núcleo de este problema
+reside en la disyuntiva fundamental entre mantener la minimización de la confianza
+---garantizando que el sistema siga siendo seguro, descentralizado y sin intermediarios--- y
+lograr la velocidad de transacción y la rentabilidad propias de los sistemas tradicionales,
+como los procesadores de pagos o las bases de datos financieras.
+
+A medida que crece la demanda de aplicaciones basadas en blockchain, estas redes suelen
+tener problemas con la latencia de las transacciones, la congestión de la red y la
+ineficiencia. Por ejemplo, Bitcoin y Ethereum, dos de las blockchains más grandes, pueden
+procesar muchas menos transacciones por segundo (TPS) que sistemas centralizados
+como Visa o PayPal. Bitcoin procesa un promedio de 6 a 8 TPS y Ethereum de 12 a 15
+TPS, mientras que estos sistemas más tradicionales procesan miles de transacciones por
+segundo. Esta disparidad se agrava a medida que aumenta la actividad de los usuarios, lo
+que conlleva tiempos de confirmación más lentos, comisiones más altas y una disminución
+general del rendimiento.
+
+\subsubsection*{2.4.14 El trilema de la escalabilidad de la cadena de bloques}
+
+Las redes blockchain se construyen con tres objetivos clave en mente: descentralización,
+seguridad y escalabilidad. Sin embargo, el trilema de la escalabilidad sugiere que las
+blockchains sólo pueden optimizar dos de estas propiedades simultáneamente, lo que
+dificulta lograr las tres al mismo tiempo.
+
+El dilema surge porque mejorar la escalabilidad suele requerir concesiones en la
+descentralización o la seguridad. Por ejemplo, aumentar el rendimiento de las transacciones
+podría implicar reducir el número de nodos que participan en su verificación, lo que puede
+
+% --- Page 27 ---
+socavar la descentralización. Del mismo modo, adoptar métodos que aceleren el
+procesamiento de transacciones podría introducir vulnerabilidades o debilitar la seguridad
+de la red.
+
+Esta disyuntiva supone un reto importante para los desarrolladores de blockchain. Lograr la
+escalabilidad sin menoscabar los principios de descentralización y seguridad es un complejo
+equilibrio que sigue marcando la evolución de la tecnología blockchain.
+
+\subsubsection*{2.4.15 Enfoques para escalar redes blockchain}
+
+\begin{enumerate}[label=\alph*.]
+    \item Soluciones de capa 1 (en cadena): Las soluciones de capa 1 implican realizar
+    cambios directamente en el protocolo base de la cadena de bloques. Estos métodos
+    modifican el funcionamiento de la cadena de bloques para gestionar más
+    transacciones y mejorar la eficiencia.
+\end{enumerate}
+
+\textbf{Fragmentación}. La fragmentación consiste en dividir la cadena de bloques en subcadenas
+paralelas más pequeñas llamadas «fragmentos». Cada fragmento procesa una parte de las
+transacciones de la red de forma independiente, distribuyendo la carga de trabajo. De esta
+manera, la red puede gestionar más transacciones en paralelo, mejorando
+significativamente el rendimiento. Imagínalo como dividir una tarea grande en partes más
+pequeñas y asignarlas a varios trabajadores, de modo que el trabajo se complete más
+rápido.
+
+\begin{enumerate}[label=\alph*.]
+    \setcounter{enumi}{1}
+    \item Soluciones de capa 2 (fuera de la cadena): Las soluciones de capa 2 se basan en la
+    cadena de bloques existente sin modificar su capa base. Estos métodos gestionan
+    las transacciones fuera de la cadena, lo que reduce la carga en la cadena de
+    bloques principal y mejora la escalabilidad.
+\end{enumerate}
+
+\textbf{Rollups}. Los rollups son una solución popular de capa 2 que agrupa muchas transacciones
+en un solo lote. Estas transacciones se ejecutan fuera de la cadena principal, y solo se
+publica un resumen o prueba del lote de transacciones en la cadena principal. Existen dos
+tipos de rollups: rollups optimistas y rollups de conocimiento cero (zk-rollups), los cuales
+reducen la carga de trabajo en la cadena principal manteniendo la seguridad.
+
+\subsection{Analisis crítico e intersección sistemas-economía}
+
+\subsection*{Tokenomics y Algoritmos de Emisión}
+
+\subsubsection*{2.5.1 Los tokenomics (o economía de tokens):}
+
+Son el modelo económico, las reglas y los incentivos que rigen una criptomoneda o activo
+digital. Este campo multidisciplinario combina economía, teoría de juegos y tecnología
+blockchain para determinar cómo se crea, distribuye, utiliza y valora un token dentro de su
+ecosistema.
+
+\subsubsection*{2.5.2 Algoritmos de Emisión}
+
+En economía, los algoritmos de emisión se refieren a las reglas matemáticas y códigos
+informáticos que determinan cómo se crea y distribuye nueva liquidez. Estos se dividen
+principalmente en la emisión centralizada de los Bancos Centrales (política monetaria) y la
+emisión descentralizada basada en protocolos criptográficos (blockchain).
+
+% --- Page 28 ---
+\subsubsection*{2.5.3 ¿Qué es un halving?}
+
+A fin de entender a cabalidad este término, primero hay que tener en cuenta algunas
+características básicas sobre cómo funciona el Bitcoin:
+
+\begin{itemize}
+    \item La emisión total de Bitcoin está limitada a 21 millones. Una vez llegado a este límite,
+    no se expedirán más BTC.
+
+    \item Los mineros se encargan de emitir nuevos bitcoins al agregar bloques de
+    información en los que validan transacciones. Si bien también se encargan de las
+    transacciones entre usuarios, cada que se emiten nuevos bitcoins en estos bloques
+    el minero recibe una recompensa a través de una transacción conocida como
+    Coinbase.
+
+    \item Los bloques se generan en una media de 10 minutos.
+\end{itemize}
+
+Ahora bien, si se tiene una cantidad finita de Bitcoins que pueden emitirse, pero hay
+mineros emitiendo nuevas criptomonedas en procesos que toman aproximadamente 10
+minutos ¿cómo se regulariza su producción de manera que no pare la producción en un
+tiempo acelerado? Gracias al halving.
+
+El halving es un evento programado que ocurre aproximadamente cada cuatro años o
+después de que se añaden 210,000 bloques nuevos al blockchain. Llegado a este punto, la
+recompensa que reciben los mineros se reduce a la mitad y el proceso para crear bloques
+se vuelve más sofisticado, lo que incrementa las dificultades para generarlos.
+
+\subsubsection*{2.5.4 ¿Para qué sirve el halving?}
+
+Como se mencionaba en líneas anteriores, al tratarse de una moneda con recursos finitos
+cuyos parámetros han sido definidos desde su creación por Satoshi Nakamoto, el halving es
+un evento que busca regular la emisión de más BTC, de manera que exista un flujo
+constante, pero controlado que no agote rápidamente a esta moneda.
+
+Se tiene contemplado que una vez que se hayan agotado las emisiones de BTC, los
+mineros podrán seguir recibiendo recompensas por el procesamiento y confirmación de las
+transacciones entre usuarios de esta divisa.
+
+Sin embargo, de no existir el halving es muy probable que este punto se hubiera alcanzado
+desde hace tiempo a una velocidad tal que resultaría difícil regular el valor de estas
+recompensas y el propio ecosistema de la moneda.
+
+Para que tengas una mejor idea de la velocidad con la trabajan los mineros, esta
+criptomoneda, se estima que en marzo de 2022 ya se habían procesado el 88\% del total de
+bloques previstos.
+
+Algunos expertos mencionan que de no implementarse el halving, la extracción habría
+terminado en ocho años. Es decir, que si bitcoin arrancó en 2009, para 2017 se habría
+alcanzado el límite de BTC para emitir.
+
+Para ser más específicos: cuando surgió el Bitcoin en 2009, cada bloque nuevo generaba
+50 BTC para los mineros. En 2012 esta cantidad se redujo a 25 BTC; posteriormente se
+convirtieron en 12.5 BTC en 2016 y a partir del 2020 reciben 6.25 BTC por cada nuevo
+bloque.
+
+
+\subsubsection*{2.5.5 Consecuencias del halving}
+
+Ahora bien, es posible que te preguntes cómo afecta este evento al Bitcoin. Para los usuarios de esta criptomoneda que la utilizan para realizar pagos y transacciones no habrá grandes cambios y pueden realizar sus transacciones como normalmente.
+
+También vale la pena aclarar que los bitcoin que compres o que tengas en tu cuenta no se reducirán a la mitad ni valdrán menos. Este evento afecta principalmente a los mineros y a los inversionistas.
+
+Entre los mineros, no sólo se reduce en un 50\% las recompensas, sino que el hashrate, es decir, la potencia de cálculo que requiere cada cadena de bloques también puede verse afectada. Así, puede ser que aparezcan nuevos mineros entusiastas si se observa una caída del hashrate, pero también puede que varios desistan si hay un aumento.
+
+Por lo tanto, se requiere de un periodo de ajustes para equilibrar el valor de la recompensa con la potencia que se requiere para acceder a ellas. Igualmente, es probable que algunos mineros busquen mejorar sus herramientas y técnicas a fin de volverse más competentes.
+
+Por otro lado, el valor del Bitcoin se guía principalmente por la oferta y la demanda. Si se reduce la producción pero se mantiene el interés por la moneda provoca que la demanda supere a la oferta, principal razón por la que algunos inversionistas especulan con el precio del Bitcoin.
+
+De hecho, se ha encontrado una relación entre el halving y los máximos históricos en el precio del BTC. No obstante, esta especulación es temporal, incluso se pueden ver ciertas caídas drásticas antes del evento y una vez que los inversores comienzan a vender.
+
+Así pues, es común que se observen caídas considerables y picos históricos en un lapso corto de tiempo antes de que la moneda vuelva a regularse.
+
+\subsection*{Vulnerabilidades y Seguridad Informática}
+
+\subsubsection*{2.5.6 ¿Qué es la criptociberseguridad?}
+
+La ciberseguridad en el ámbito de las criptomonedas es fundamental en el mundo de los activos digitales, que evoluciona rápidamente. A medida que más personas y empresas adoptan las criptomonedas, la digitalización de los activos introduce vulnerabilidades únicas que requieren medidas de seguridad. Asimismo, con el auge de las criptomonedas, estos activos digitales quedan cada vez más expuestos a amenazas.
+
+En el ámbito de las transacciones con criptomonedas, las claves privadas desempeñan un papel fundamental en el acceso a los activos digitales. Desafortunadamente, estas claves se han convertido en objetivos prioritarios para los hackers, lo que hace que una sólida ciberseguridad para las criptomonedas sea indispensable.
+
+A diferencia de los sistemas financieros tradicionales, la tecnología blockchain sustenta las criptomonedas, ofreciendo anonimato y descentralización. Si bien estas características mejoran la privacidad, también aumentan el riesgo de pérdidas financieras debido a la naturaleza no regulada de las transacciones con criptomonedas.
+
+\subsubsection*{2.5.7 ¿Qué tipos de estafas y riesgos existen con las criptomonedas?}
+
+A medida que crece la popularidad de las monedas digitales, también aumentan los riesgos asociados con las estafas de criptomonedas. Comprender los distintos tipos de estafas de criptomonedas es fundamental para proteger sus inversiones y transacciones. A continuación, se presentan algunos de los riesgos y estafas más comunes en el mundo de las criptomonedas:
+
+\begin{enumerate}[label=\alph*.]
+  \item Robo de información confidencial
+
+Una de las estafas con criptomonedas más comunes que afectan a los usuarios consiste en el robo de información confidencial. Los hackers suelen atacar las claves privadas, esenciales para acceder a las billeteras digitales. Una vez que estas claves se ven comprometidas, el hacker obtiene el control total de los activos de la víctima, lo que conlleva importantes pérdidas financieras.
+
+  \item Minería de criptomonedas
+
+La minería de criptomonedas implica el uso de recursos informáticos para validar transacciones y asegurar la red blockchain. Sin embargo, en ocasiones, los ciberdelincuentes implementan malware de minería que utiliza de forma encubierta la potencia informática de la víctima para minar criptomonedas en su nombre. Esto no solo ralentiza el dispositivo de la víctima, sino que también aumenta su consumo eléctrico.
+
+  \item Técnicas de pirateo sofisticadas
+
+Los hackers emplean métodos avanzados para vulnerar plataformas de intercambio y monederos de criptomonedas. Estas sofisticadas técnicas de hacking pueden ocasionar la pérdida de grandes cantidades de moneda digital. La naturaleza descentralizada de la tecnología blockchain dificulta la recuperación de los activos robados, lo que subraya la importancia de contar con sólidas medidas de ciberseguridad para las criptomonedas.
+
+  \item Ataques de phishing
+
+Los ataques de phishing son un tipo común de estafa con criptomonedas en la que los estafadores se hacen pasar por entidades legítimas para engañar a los usuarios y obtener sus claves privadas u otra información confidencial. Estas estafas suelen implicar sitios web o correos electrónicos falsos que parecen auténticos, lo que facilita que los usuarios desprevenidos caigan víctimas.
+\end{enumerate}
+
+\subsubsection*{2.5.8 Prácticas eficaces de ciberseguridad criptográfica}
+
+\begin{enumerate}[label=\alph*.]
+  \item Utilice carteras de hardware.
+
+Carteras de hardware (almacenamiento en frío) : Se trata de dispositivos físicos que almacenan tus claves privadas sin conexión a internet. Algunos ejemplos son Ledger Nano S/X y Trezor. Estos dispositivos te permiten guardar tus criptomonedas sin conexión, lo que reduce considerablemente el riesgo de ser hackeadas. Sin embargo, perder tu clave física o que te la roben supondría la pérdida de tus criptomonedas.
+
+  \item Cuidado con los ataques de phishing.
+    \begin{itemize}
+      \item Correos electrónicos y enlaces : Tenga cuidado con los correos electrónicos, enlaces y archivos adjuntos no solicitados. Siempre verifique la fuente antes de hacer clic.
+      \item Canales oficiales : Utilice únicamente los sitios web y aplicaciones oficiales para transacciones e información.
+    \end{itemize}
+
+  \item Haz una copia de seguridad de tu cartera.
+    \begin{itemize}
+      \item Copias de seguridad : Realice copias de seguridad de su billetera periódicamente y almacene las copias de seguridad en varios lugares seguros (por ejemplo, unidades USB, almacenamiento seguro en la nube).
+      \item Frases de recuperación : Anota tus frases de recuperación (frases semilla) en un papel y guárdalas en un lugar seguro.
+    \end{itemize}
+
+  \item Utilice plataformas de intercambio de buena reputación.
+    \begin{itemize}
+      \item Seguridad de la plataforma de intercambio : Elija plataformas con sólidas medidas de seguridad, como almacenamiento en frío para los activos, seguros y protocolos de autenticación robustos.
+      \item Almacenamiento mínimo : Mantenga solo una pequeña parte de sus criptomonedas en plataformas de intercambio para operar; transfiera el resto a su billetera segura.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ecosistema de Criptomonedas en el Perú}
+
+\subsection*{Contexto legal actual}
+
+En el Perú, las criptomonedas no son moneda de curso legal ni están prohibidas. Actualmente existe un \textbf{vacío normativo}, es decir, no hay una ley específica que regule de manera integral su compra, venta o uso. Sin embargo, varias instituciones han emitido lineamientos relacionados con la prevención de delitos financieros.
+
+La \textbf{Superintendencia de Banca, Seguros y AFP (SBS)} y la \textbf{Unidad de Inteligencia Financiera del Perú (UIF-Perú)} supervisan el cumplimiento de normas contra el lavado de activos. En este contexto, los Proveedores de Servicios de Activos Virtuales (PSAV), como algunos exchanges, deben implementar controles para identificar a sus clientes (KYC) y reportar operaciones sospechosas cuando la normativa aplicable lo exige.
+
+Por su parte, el \textbf{Banco Central de Reserva del Perú (BCRP)} ha señalado que las criptomonedas presentan alta volatilidad y no constituyen moneda de curso legal en el país. Su postura ha sido cautelosa, promoviendo la innovación tecnológica sin reconocerlas como sustituto del sol peruano.
+
+\subsection*{Impacto y adopción}
+
+El interés por las criptomonedas en el Perú ha crecido en los últimos años gracias al acceso a plataformas digitales y al aumento de la educación financiera. Sin embargo, su adopción masiva sigue siendo limitada.
+
+Las principales razones son:
+
+\begin{itemize}
+  \item Alta volatilidad de los precios.
+  \item Desconocimiento sobre blockchain y seguridad digital.
+  \item Preferencia cultural por el uso de efectivo.
+  \item Desconfianza hacia inversiones de alto riesgo.
+  \item Falta de una regulación específica que brinde mayor seguridad jurídica.
+\end{itemize}
+
+A pesar de ello, algunos emprendedores y empresas ya aceptan pagos en criptomonedas y existe una comunidad activa de desarrolladores y usuarios.
+
+\subsection*{Beneficios}
+
+\begin{itemize}
+  \item Reducción de costos en remesas internacionales.
+  \item Transacciones disponibles las 24 horas del día.
+  \item Mayor inclusión financiera para personas sin acceso a servicios bancarios tradicionales.
+  \item Transparencia gracias al registro público de las operaciones en blockchain.
+  \item Impulso a la innovación tecnológica y al desarrollo de aplicaciones descentralizadas.
+\end{itemize}
+
+\subsection*{Desventajas}
+
+\begin{itemize}
+  \item Alta volatilidad de los precios.
+  \item Riesgo de fraudes y estafas.
+  \item Pérdida irreversible de fondos si se extravían las llaves privadas.
+  \item Consumo energético elevado en algunas redes basadas en Proof of Work.
+  \item Ausencia de protección al consumidor comparable a la del sistema financiero tradicional.
+\end{itemize}
+
+\subsection*{Desafíos para el desarrollo}
+
+Para que el ecosistema de criptomonedas crezca de forma sostenible en el Perú, es necesario fortalecer la educación financiera y tecnológica de la población, promover un marco regulatorio claro que incentive la innovación sin comprometer la seguridad, y definir criterios tributarios más precisos sobre la tributación de los activos virtuales. Asimismo, será importante fomentar la colaboración entre el Estado, las universidades y el sector privado para desarrollar talento especializado en blockchain y ciberseguridad.
+
+\subsection{Propuestas de mitigación y evolución sistémica}
+
+El ecosistema de los criptoactivos y la tecnología \textit{blockchain} se encuentra en una problemática importante. Para transicionar de una tecnología de nicho a una infraestructura financiera global y confiable, es indispensable resolver sus vulnerabilidades estructurales. A continuación, se desarrollan las propuestas de ingeniería, regulación y seguridad diseñadas para mitigar estos riesgos y guiar la evolución del sistema.
+
+\subsubsection*{2.7.1. Optimización y Soluciones de Ingeniería de Software}
+
+En la ingeniería de sistemas, un sistema ideal debe equilibrar la seguridad, la eficiencia y la usabilidad. En el ámbito \textit{blockchain}, este equilibrio se busca a través de dos innovaciones clave en la capa de software:
+
+\begin{enumerate}[label=\alph*.]
+  \item Abstracción de cuentas (Account Abstraction) y Billeteras inteligentes
+
+Actualmente en Bitcoin o Ethereum, existen dos tipos de cuentas:
+
+\begin{itemize}
+  \item Cuentas Externas: Son billeteras comunes controladas por un par de llaves criptográficas
+  \item Cuentas de Contratos Inteligentes: Son fragmentos de código autónomo que ejecutan instrucciones automáticamente cuando se cumplen ciertas condiciones.
+\end{itemize}
+
+Problema: Si un usuario pierde su frase semilla (las 12 o 24 palabras que derivan su llave privada), pierde el acceso a sus fondos para siempre. No existe un botón de ``recuperar contraseña''.
+
+Aquí es donde entra la abstracción de cuentas, que consiste en convertir la cuenta del usuario en un contrato inteligente programable. Esto reemplaza la rigidez de las llave criptográficas y permite implementar:
+
+\begin{itemize}
+  \item Billeteras inteligentes: Billeteras que pueden ejecutar lógicas complejas, como límites de transacciones diarias o pago de tarifas de red con cualquier token (no solo el nativo de la red).
+  \item Recuperación Social: Si el usuario pierde el acceso a su billetera, un grupo de ``guardianes'' preconfigurados (amigos de confianza, dispositivos institucionales o servicios de terceros) pueden firmar institucionalmente una transacción para asignarle una nueva llave de acceso, eliminando el riesgo absoluto de la frase semilla sin perder la descentralización.
+\end{itemize}
+
+  \item Migración hacia Rollups de conocimiento Cero (ZK-Rollups)
+
+Uno de los problemas matemáticos y computacionales más desafiantes en la tecnología \textit{blockchain} es el \textbf{Trilema de la Escalabilidad}, acuñado por Vitalik Buterin. Este postula que una red descentralizada solo puede cumplir dos de tres propiedades simultáneamente: \textbf{Seguridad, Descentralización y Escalabilidad}.
+
+Problema: Las redes de Primera Capa (L1), como Ethereum, priorizan la seguridad y la descentralización. Como consecuencia, la capacidad de procesamiento de transacciones por segundo (TPS) es muy baja, lo que satura la red y eleva los costos de transacción.
+
+Para resolver esto sin alterar la seguridad del protocolo base, la ingeniería de software ha desarrollado las soluciones de Segunda Capa (L2), siendo los Rollups de conocimiento Cero la propuesta más eficiente.
+
+Un rollup es un ``enrollamiento'' de cientos de transacciones fuera de la cadena principal, estas transacciones se analizan en una prueba matemática compacta llamada Prueba de conocimiento cero, esta prueba demuestra que todas las transacciones del paque son válidas y consistentes para las reglas del sistema, al final la cadena principal solo debe verificar la validez de la prueba haciendolo un proceso más ligero y escalabale para el funcionamiento de los software de blockchain.
+\end{enumerate}
+
+\subsubsection*{2.7.2. Propuesta regulatoria para el contexto peruano}
+
+Para poder implementar y/o mejorar los sistemas de adopción de criptoactivos para el contexto peruano, se plantea:
+
+\begin{enumerate}[label=\alph*.]
+  \item Arquitectura de un Sandbox Regulatorio Interinstitucional
+
+Una caja de arena o sandbox es un entorno aislado y seguro donde los desarrolladores de software pueden probar códigos experimentales sin riesgo de romper el sistema de producción. Analizando la situación legal del Perú, un sandbox regulatorio es un lugar donde las instituciones y/o empresas puedan probar modelos de negocio en contextos reales.
+
+Estas instituciones en cuestión, serían los 3 pilares del sistema financiero peruano:
+
+\begin{itemize}
+  \item \textbf{La Superintendencia de Banca, Seguros y AFP (SBS):} Enfocada en la prevención del lavado de activos (PLAFT) y la estabilidad financiera de los operadores.
+  \item \textbf{La Superintendencia del Mercado de Valores (SMV):} Encargada de determinar cuándo un criptoactivo califica como un valor mobiliario (tokenización de activos, ICOs) para proteger al inversionista minorista.
+  \item \textbf{El Banco Central de Reserva del Perú (BCRP):} Interesado en el impacto de los criptoactivos en los sistemas de pago nacionales y el análisis de la interoperabilidad con infraestructuras vigentes.
+\end{itemize}
+
+Este sandbox permitiría al Estado peruano entender la naturaleza algorítmica de los criptoactivos y redactar leyes basadas en datos empíricos, evitando regulaciones prohibitivas que asfixien la innovación tecnológica.
+
+  \item Estándares mínimos de transparencia y segregación de fondos
+
+Para las plataformas operativas en el Perú, se deben dictaminar dos estándares técnicos fundamentales:
+
+\begin{itemize}
+  \item \textbf{Segregación Absoluta de Fondos:} Obligatoriedad legal y contable de separar los fondos operativos de la empresa de los depósitos de los clientes. El capital de los usuarios no puede ser utilizado para apalancamiento, préstamos o inversiones propias de la plataforma.
+  \item \textbf{Pruebas de Reserva Algorítmicas :} Implementación de auditorías criptográficas en tiempo real donde las plataformas utilicen estructuras de datos avanzadas para demostrar públicamente que sus pasivos, es decir lo que deben a sus usuarios, están respaldados al 100\% por activos verificables en la cadena de bloques.
+\end{itemize}
+\end{enumerate}
+
+\subsubsection*{2.7.3. Buenas Prácticas y Consejos Técnicos de Seguridad para Usuarios}
+
+Dado que las redes descentralizadas eliminan a los intermediarios, la responsabilidad de la seguridad recae por completo en el usuario final. En la seguridad informática, el eslabón más débil suele ser el factor humano.
+
+\subsubsection*{a. Lineamientos de Custodia}
+
+El principio fundamental de las criptomonedas se resume en la máxima anglosajona: \textit{``Not your keys, not your coins''} (Si no son tus llaves, no son tus monedas).
+
+Problema: La problemática radica en las Plataformas de Intercambio Centralizadas (CEX): Cuando un usuario mantiene sus fondos en un exchange tradicional, no posee una billetera real; posee una cuenta de usuario en una base de datos privada. La llave privada de la dirección \textit{blockchain} la controla la empresa. Si el exchange quiebra o sufre un hackeo, el usuario pierde el acceso a sus activos.
+
+\begin{itemize}
+  \item \textbf{Billeteras Frías :} Son dispositivos físicos especializados (similares a una memoria USB) diseñados exclusivamente para almacenar las llaves privadas de forma aislada de internet. Su ventaja computacional radica en que la firma de las transacciones ocurre dentro del hardware seguro del dispositivo. Incluso si la computadora del usuario está infectada con malware o virus espía, la llave privada nunca se expone a la red, neutralizando los ataques de piratería informática a distancia.
+\end{itemize}
+
+\subsubsection*{b. Mecanismos de Auditoría Personal en Finanzas Descentralizadas (DeFi)}
+
+En el ecosistema DeFi, los usuarios interactúan directamente con contratos inteligentes a través de aplicaciones web. Los atacantes han sofisticado sus métodos, pasando del hackeo directo de protocolos al engaño de los usuarios mediante ingeniería social y la inyección de código malicioso en interfaces web.
+
+Problema: Hoy en día existen Contratos con Funciones de Drenado (Drainers) que son contratos inteligentes diseñados con funciones maliciosas ocultas. Mediante técnicas de \textit{phishing}, engañan al usuario para que firme una transacción que parece legítima (por ejemplo, ``Reclamar un token gratuito''), pero que en realidad ejecuta una función interna del contrato llamada ``approve'' o ``setApprovalForAll''.
+
+\begin{itemize}
+  \item \textbf{Estrategia de Mitigación:} Los usuarios deben adoptar una cultura de ``auditoría personal'' antes de interactuar con cualquier protocolo. Esto incluye el uso de extensiones de billetera orientadas a la seguridad que simulen la transacción en un entorno aislado antes de firmarla (mostrando claramente qué activos saldrán de la billetera) y la revocación periódica de permisos de contratos antiguos a través de herramientas de código abierto verificadas
+\end{itemize}
+
+\section{III. CONCLUSIONES}
+
+% === batch_036_038.tex ===
+\begin{itemize}[leftmargin=1.5em]
+  \item Las criptomonedas como un logro de la ingeniería de software y los sistemas distribuidos.
+\end{itemize}
+
+Las criptomonedas constituyen un logro histórico de la ingeniería de software y los sistemas distribuidos, demostrando que es técnicamente viable construir redes de valor globales, seguras, descentralizadas y de alta disponibilidad sin depender de una entidad central de control.
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Futuro de la disciplina en las Ciencias de la Computación e Ingeniería de sistemas.
+\end{itemize}
+
+El futuro de la ingeniería de sistemas y las ciencias de la computación está intrínsecamente ligado a la descentralización; dominar la arquitectura blockchain y el desarrollo de sistemas distribuidos seguros ya no es una especialidad opcional, sino un requisito fundamental para liderar la próxima generación de infraestructura tecnológica global.
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Reflexión sobre el contexto actual del Perú y la implementación de las criptomonedas
+\end{itemize}
+
+Para que la implementación de las criptomonedas sea exitosa y beneficiosa en el Perú, el país no solo requiere de un marco regulatorio inteligente que proteja al usuario sin asfixiar la innovación, sino de un esfuerzo conjunto entre el Estado, la academia y el sector privado para cerrar la brecha de educación digital y financiera, permitiendo que esta tecnología se convierta en una herramienta real de descentralización y democratización económica.
+
+\section{IV. REFERENCIAS BIBLIOGRÁFICAS}
+
+\begin{itemize}
+
+\item Adam Back. (2002). \textit{Hashcash -- A denial of service counter-measure}.
+\url{http://www.hashcash.org/papers/hashcash.pdf}
+
+\item Azilen, T. (2025, January 23). \textit{An Ultimate Guide to Peer-to-Peer Topology for IoT Networks}. Azilen.
+\url{https://www.azilen.com/learning/peer-to-peer-topology-for-iot/}
+
+\item Banco Central de Reserva del Perú. (s. f.). \textit{Riesgos de las criptomonedas}.
+\url{https://www.bcrp.gob.pe/sistema-de-pagos/articulos/riesgos-de-las-criptomonedas.html}
+
+\item Barboza, S., \& Rojas, R. (2026). El sandbox regulatorio como instrumento para fomentar el desarrollo de la industria fintech en el Perú. \textit{Revista de Actualidad Mercantil}, (10), 27--44.
+\url{https://revistas.pucp.edu.pe/index.php/actualidadmercantil/article/view/34071}
+
+\item Bhujel, S., \& Rahulamathavan, Y. (2022). A survey: Security, transparency, and scalability issues of NFT's and its marketplaces. \textit{Sensors}, \textit{22}(22), 8833.
+\url{https://doi.org/10.3390/s22228833}
+
+\item Castro, M., \& Liskov, B. (2002). Practical Byzantine fault tolerance and proactive recovery. \textit{ACM Transactions on Computer Systems}, \textit{20}(4), 398--461.
+\url{https://doi.org/10.1145/571637.571640}
+
+\item Chaum, D. (1983). \textit{Blind signatures for untraceable payments}. En D. Chaum, R. L. Rivest, \& A. T. Sherman (Eds.), \textit{Advances in Cryptology: Proceedings of CRYPTO '82} (pp. 199--203). Springer.
+\url{https://doi.org/10.1007/978-1-4757-0602-4_18}
+
+\item Dai, W. (1998). \textit{B-money}.
+\url{http://www.weidai.com/bmoney.txt}
+
+\item Garcia-Milà, P. (2025, March 11). \textit{Tokenomics: guía básica para principiantes}. Founderz.
+\url{https://founderz.com/es/blog/tokenomics-guia-para-principiantes/}
+
+\item Hedera. (2025, December 17). \textit{What is the Ethereum Virtual Machine and how does it work?}
+\url{https://hedera.com/learning/ethereum-virtual-machine/}
+
+\item IBM. (2025, November 28). \textit{¿Qué son los contratos inteligentes en blockchain?}
+\url{https://www.ibm.com/es-es/think/topics/smart-contracts}
+
+\item Innovation Hub. (s. f.). \textit{Qué es blockchain y cómo funciona esta tecnología}. Recuperado el 11 de julio de 2026.
+\url{https://www.imnovation-hub.com/es/transformacion-digital/que-es-blockchain-y-como-funciona-esta-tecnologia}
+
+\item Investopedia Team. (2026, May 8). \textit{Understanding Consensus Mechanisms: Blockchain and Crypto Basics}.
+\url{https://www.investopedia.com/terms/c/consensus-mechanism-cryptocurrency.asp}
+
+\item Kroll, J. A., Davey, I. C., \& Felten, E. W. (2013). \textit{The economics of Bitcoin mining, or Bitcoin in the presence of adversaries}. WEIS 2013.
+\url{https://www.cs.princeton.edu/~felten/papers/bitcoin.pdf}
+
+\item Lefebvre. (2026, January 27). \textit{Smart contracts: claves jurídicas y sociales del paradigma contractual}.
+\url{https://elderecho.com/smart-contracts-claves-juridicas-y-sociales-de-un-nuevo-paradigma-contractual/}
+
+\item Lin, Z., Wang, T., Zhao, C., Zhang, S., Yang, Q., \& Shi, L. (2024). A measurement investigation of ERC-4337 smart contracts on Ethereum blockchain. En \textit{2024 International Conference on Computing, Networking and Communications} (pp. 1164--1170). IEEE.
+\url{https://doi.org/10.1109/ICNC59896.2024.10556301}
+
+\item Nakamoto, S. (2008). \textit{Bitcoin: A peer-to-peer electronic cash system}.
+\url{https://bitcoin.org/bitcoin.pdf}
+
+\item Rezqallah Arón, T. (2021). Innovando en la arenera: una aproximación a las Fintech y a la importancia de la implementación de un Sandbox regulatorio en Perú. \textit{THEMIS Revista de Derecho}, (79), 215--233.
+\url{https://revistas.pucp.edu.pe/index.php/themis/article/view/24874}
+
+\item Rosenfeld, M. (2014). \textit{Analysis of hashrate-based double spending}.
+\url{https://arxiv.org/abs/1402.2009}
+
+\item SG Buzz. (s. f.). \textit{Mecanismos de consenso explicados}.
+\url{https://sg.com.mx/revista/57/mecanismos-consenso-explicados}
+
+\item Singh, A. (2023). WedgeBlock: An off-chain secure logging platform for blockchain applications. \textit{OpenProceedings}, 347--360.
+\url{https://openproceedings.org/2023/conf/edbt/3-paper-43.pdf}
+
+\item Susnjara, S., \& Smalley, I. (2025, November 28). \textit{¿Qué es Blockchain?} IBM.
+\url{https://www.ibm.com/es-es/think/topics/blockchain}
+
+\item Szabo, N. (1998). \textit{Bit Gold}. Nakamoto Institute.
+\url{https://nakamotoinstitute.org/bit-gold/}
+
+\item What is Cyber Security for Crypto? (s. f.). Darktrace.
+\url{https://www.darktrace.com/cyber-ai-glossary/crypto-cybersecurity}
+
+\item Zaghloul, E., Li, T., Mutka, M. W., \& Ren, J. (2019). \textit{Bitcoin and blockchain: Security and privacy}.
+\url{https://arxiv.org/abs/1904.11435}
+
+\end{itemize}
+
+\end{document}
